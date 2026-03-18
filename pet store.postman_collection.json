@@ -1,0 +1,276 @@
+{
+  "info": {
+    "_postman_id": "42009160-adb6-4589-9110-831657c11ef4",
+    "name": "pet store",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "42361073",
+    "_collection_link": "https://go.postman.co/collection/42361073-42009160-adb6-4589-9110-831657c11ef4?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "pet",
+      "item": [
+        {
+          "name": "Add a new pet to the store",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"id\": 6003,\r\n  \"category\": {\r\n    \"id\": 10,\r\n    \"name\": \"Dogs\"\r\n  },\r\n  \"name\": \"Jack\",\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 5,\r\n      \"name\": \"dog\"\r\n    }\r\n  ],\r\n  \"status\": \"available\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{store_url}}/pet",
+              "host": [
+                "{{store_url}}"
+              ],
+              "path": [
+                "pet"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Updates a pet in the store with from data",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "name",
+                  "value": "Sharik",
+                  "type": "text",
+                  "uuid": "4cc736dd-82ed-4ade-8180-5366c7d9f0b7"
+                },
+                {
+                  "key": "status",
+                  "value": "sold",
+                  "type": "text",
+                  "uuid": "591f2e33-194e-4746-9a9f-22cb4bd4c72b"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{store_url}}/pet/77777",
+              "host": [
+                "{{store_url}}"
+              ],
+              "path": [
+                "pet",
+                "77777"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update an existing pet",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"id\": 77777,\r\n  \"category\": {\r\n    \"id\": 6,\r\n    \"name\": \"SuperDogs\"\r\n  },\r\n  \"name\": \"Barsik\",\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 6,\r\n      \"name\": \"superdog\"\r\n    }\r\n  ],\r\n  \"status\": \"available\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{store_url}}/pet",
+              "host": [
+                "{{store_url}}"
+              ],
+              "path": [
+                "pet"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Find pet by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{store_url}}/pet/6003",
+              "host": [
+                "{{store_url}}"
+              ],
+              "path": [
+                "pet",
+                "6003"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Find Pets by status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{store_url}}/pet/findByStatus?status=sold",
+              "host": [
+                "{{store_url}}"
+              ],
+              "path": [
+                "pet",
+                "findByStatus"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "sold"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "uploads an image",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "additionalMetadata",
+                  "value": "image",
+                  "type": "text",
+                  "uuid": "b81f61ba-bb64-4edd-ba38-980dac5b54f3"
+                },
+                {
+                  "key": "file",
+                  "type": "file",
+                  "uuid": "f43e6d73-5126-403c-8a22-5c4b5e6e735c",
+                  "src": "postman-cloud:///1f11bc3f-8c32-4fb0-9ab2-177cdd89b6f0"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{store_url}}/pet/77777/uploadImage",
+              "host": [
+                "{{store_url}}"
+              ],
+              "path": [
+                "pet",
+                "77777",
+                "uploadImage"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Deletes a pet",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{store_url}}/pet/77777",
+              "host": [
+                "{{store_url}}"
+              ],
+              "path": [
+                "pet",
+                "77777"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "sold",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "store",
+      "item": [
+        {
+          "name": "Place an order for a pet",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"id\": 1,\r\n  \"petId\": 6003,\r\n  \"quantity\": 0,\r\n  \"shipDate\": \"2026-03-18T13:42:56.773Z\",\r\n  \"status\": \"placed\",\r\n  \"complete\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{store_url}}/store/order",
+              "host": [
+                "{{store_url}}"
+              ],
+              "path": [
+                "store",
+                "order"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Find purchase order by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{store_url}}/store/order/1",
+              "host": [
+                "{{store_url}}"
+              ],
+              "path": [
+                "store",
+                "order",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete purchase order by ID",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{store_url}}/store/order/1",
+              "host": [
+                "{{store_url}}"
+              ],
+              "path": [
+                "store",
+                "order",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
